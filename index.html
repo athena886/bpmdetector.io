@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BPM Detector — Free Online Beat Finder &amp; Tempo Detector</title>
+  <meta name="description" content="Free BPM detector to find BPM of any song online—fast, private, and no upload. Analyze MP3, WAV, M4A, or OGG audio in your browser.">
+  <meta name="theme-color" content="#090b0a">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bpmdetector.io/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bpmdetector.io/">
+  <meta property="og:title" content="BPM Detector — Free Online Beat Finder &amp; Tempo Detector">
+  <meta property="og:description" content="Find the tempo of any song in your browser. Free, fast, and your audio never leaves your device.">
+  <meta property="og:site_name" content="BPMDetector">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="BPM Detector — Free Online Beat Finder">
+  <meta name="twitter:description" content="Find any song's BPM online—free, private, and with no upload.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "BPMDetector",
+        "url": "https://bpmdetector.io/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any operating system with a modern web browser",
+        "browserRequirements": "Requires JavaScript and the Web Audio API",
+        "description": "A free, private browser-based BPM detector for MP3, WAV, M4A, and OGG audio files.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "featureList": ["In-browser BPM analysis", "Tap tempo", "No server upload", "Offline-capable", "Confidence estimate"]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"How do I use the BPM detector with an MP3?","acceptedAnswer":{"@type":"Answer","text":"Drop an MP3 onto the analyzer or choose it from your device. The browser decodes and analyzes the audio locally, then displays an estimated BPM and confidence level. Nothing is uploaded."}},
+          {"@type":"Question","name":"Can I use the BPM detector by tapping?","acceptedAnswer":{"@type":"Answer","text":"Yes. Press the Tap button in time with at least four beats. The tap tempo readout averages your recent intervals, making it useful for checking or correcting the automatic result."}},
+          {"@type":"Question","name":"Is this a live BPM detector?","acceptedAnswer":{"@type":"Answer","text":"It analyzes complete audio files directly in your browser. It does not continuously listen through your microphone, so it is live in the sense of immediate local file analysis, not live room monitoring."}},
+          {"@type":"Question","name":"Can it detect BPM from a YouTube link?","acceptedAnswer":{"@type":"Answer","text":"No. This tool does not download or extract audio from YouTube links. Use an audio file you own or are allowed to analyze, then drop that file into the detector."}},
+          {"@type":"Question","name":"Does the BPM detector use my microphone?","acceptedAnswer":{"@type":"Answer","text":"No. Microphone access is not requested. For a song playing nearby, use Tap Tempo while listening instead."}},
+          {"@type":"Question","name":"Which audio formats work?","acceptedAnswer":{"@type":"Answer","text":"MP3 and WAV have broad browser support. M4A, AAC, and OGG support depends on the codecs available in your browser and operating system."}},
+          {"@type":"Question","name":"Why can a BPM result be half or double the tempo I expect?","acceptedAnswer":{"@type":"Answer","text":"Half-time and double-time rhythms share the same beat spacing at different metrical levels. Use the tempo range controls or Tap Tempo to choose the interpretation that matches how you count the music."}},
+          {"@type":"Question","name":"Is the BPM analyzer private and free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The analyzer is free, has no ads, and processes audio in your browser. Your audio never leaves your device."}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to BPM detector</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="/" aria-label="BPMDetector home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>BPM<span>Detector</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" aria-label="Main navigation">
+        <a href="/" aria-current="page">Home</a>
+        <a href="/bpm-finder/">BPM Finder</a>
+        <a href="/tempo-detector/">Tempo Detector</a>
+        <a href="/key-bpm-detector/">Key BPM Detector</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Free · private · browser-based</p>
+        <h1 id="hero-title">BPM Detector</h1>
+        <p class="lede">Find the beat of any song in seconds. Your audio never leaves your device.</p>
+      </div>
+
+      <div class="tool-shell" id="detector">
+        <div class="tool-topbar">
+          <div><span class="status-dot"></span><span id="tool-status">Ready to analyze</span></div>
+          <span class="offline-badge">Works offline</span>
+        </div>
+
+        <div id="upload-view">
+          <input id="audio-file" class="visually-hidden" type="file" accept="audio/mpeg,audio/wav,audio/x-wav,audio/mp4,audio/aac,audio/ogg,.mp3,.wav,.m4a,.aac,.ogg">
+          <label class="drop-zone" id="drop-zone" for="audio-file">
+            <span class="upload-icon" aria-hidden="true"><span>↑</span></span>
+            <strong>Drop your audio here</strong>
+            <span>or click to choose a file</span>
+            <small>MP3, WAV, M4A, AAC or OGG · Audio stays on this device</small>
+          </label>
+          <div class="trust-row" aria-label="Product benefits">
+            <span><b aria-hidden="true">✓</b> No upload</span>
+            <span><b aria-hidden="true">✓</b> No account</span>
+            <span><b aria-hidden="true">✓</b> No file limit</span>
+          </div>
+        </div>
+
+        <div class="analysis-view" id="analysis-view" hidden aria-live="polite">
+          <div class="analyzing" id="analyzing-state">
+            <div class="scan-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <strong>Listening for beats…</strong>
+            <span id="file-name">Analyzing audio</span>
+            <div class="progress-track"><i id="progress-bar"></i></div>
+          </div>
+
+          <div class="result" id="result-panel" hidden>
+            <div class="result-main">
+              <div class="pulse-orbit" id="pulse-orbit" aria-hidden="true"><span></span></div>
+              <div class="bpm-readout"><span id="bpm-value">—</span><small>BPM</small></div>
+              <p><span class="confidence-dot"></span><span id="confidence-text">High confidence</span> <span class="separator">·</span> <span id="tempo-feel">Steady tempo</span></p>
+            </div>
+            <div class="result-actions">
+              <button class="button primary" id="copy-bpm" type="button">Copy BPM</button>
+              <button class="button secondary" id="analyze-another" type="button">Analyze another</button>
+            </div>
+            <div class="tempo-variants" aria-label="Alternative tempo interpretations">
+              <span>Other interpretations</span>
+              <button id="half-time" type="button" title="Use half-time BPM">—</button>
+              <button id="double-time" type="button" title="Use double-time BPM">—</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tap-panel">
+          <div>
+            <span class="panel-label">Tap tempo</span>
+            <p>Not sure? Tap along to verify the beat.</p>
+          </div>
+          <div class="tap-controls">
+            <output id="tap-output" aria-live="polite"><strong>—</strong><small>BPM</small></output>
+            <button id="tap-button" type="button"><span>Tap</span><kbd>Space</kbd></button>
+            <button class="reset-tap" id="reset-tap" type="button" aria-label="Reset tap tempo">Reset</button>
+          </div>
+        </div>
+      </div>
+      <p class="tool-note">Processing happens locally with the Web Audio API. We cannot access, store, or hear your file.</p>
+    </section>
+
+    <section class="steps content-section" id="how-it-works">
+      <div class="section-heading">
+        <p class="eyebrow">Three quick steps</p>
+        <h2>How the BPM detector works</h2>
+        <p>The analyzer turns rhythmic changes in your audio into a reliable tempo estimate—without sending a byte to a server.</p>
+      </div>
+      <ol class="step-grid">
+        <li><span>01</span><h3>Drop audio</h3><p>Choose a song, loop, stem, or demo from your phone or computer. The file opens only inside your browser.</p></li>
+        <li><span>02</span><h3>Analyze locally</h3><p>The detector measures changes in energy, finds likely onsets, and compares repeating beat intervals.</p></li>
+        <li><span>03</span><h3>Get the BPM</h3><p>See the strongest tempo, a confidence estimate, and half- or double-time options. Tap along for a human check.</p></li>
+      </ol>
+    </section>
+
+    <section class="features content-section" id="bpm-finder">
+      <div class="section-heading split-heading">
+        <div><p class="eyebrow">Built for the session</p><h2>A faster, private BPM finder</h2></div>
+        <p>DJs, producers, musicians, dancers, and video editors need a number they can use—not an account form or a catalog search. This free BPM finder analyzes your actual file.</p>
+      </div>
+      <div class="feature-grid">
+        <article><span aria-hidden="true">$0</span><h3>Free by default</h3><p>No credits, trial, account, ads, or artificial file limits. Open the page and start finding beats.</p></article>
+        <article><span aria-hidden="true">⌁</span><h3>Private processing</h3><p>Your audio never leaves your device. That matters for unreleased demos, client work, and private recordings.</p></article>
+        <article><span aria-hidden="true">↯</span><h3>Works offline</h3><p>Once this page is cached, the core tool can run without a connection. Handy in a booth, studio, or on the road.</p></article>
+        <article><span aria-hidden="true">♫</span><h3>Common formats</h3><p>Analyze MP3, WAV, M4A, AAC, and OGG when the audio codec is supported by your browser.</p></article>
+        <article><span aria-hidden="true">◫</span><h3>Made for mobile</h3><p>Large targets, a legible readout, and drag-and-drop alternatives make the tool comfortable on any screen.</p></article>
+        <article><span aria-hidden="true">◎</span><h3>Tempo context</h3><p>Compare half-time and double-time values so the result matches the way you count the groove.</p></article>
+      </div>
+    </section>
+
+    <section class="editorial content-section" id="tempo-detector">
+      <div class="editorial-grid">
+        <div><p class="eyebrow">From waveform to pulse</p><h2>What a tempo detector listens for</h2></div>
+        <div class="prose">
+          <p>BPM means beats per minute: 120 BPM describes two beats every second. A tempo detector does not understand a song like a musician does. It looks for measurable events that often line up with the beat—kick drums, snares, claps, bass attacks, chord changes, and other sudden rises in energy.</p>
+          <p>This analyzer mixes the decoded signal to mono, samples a useful portion of the track, and builds an onset envelope from frame-to-frame energy changes. It then checks how strongly that envelope repeats across musically plausible intervals. The best-supported interval becomes the estimated BPM. A confidence score reflects how clearly the winning pulse stands above competing possibilities.</p>
+          <p>Tempo is sometimes ambiguous. A 70 BPM hip-hop groove can also be counted at 140 BPM; a sparse 128 BPM breakdown may suggest 64. That is not necessarily a detection error—it is a choice of metrical level. The half-time and double-time controls make that choice explicit, while Tap Tempo lets your ears make the final call.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="editorial content-section compact" id="key-bpm-detector">
+      <div class="editorial-grid">
+        <div><p class="eyebrow">Practical music data</p><h2>Key BPM detector: what this tool tells you</h2></div>
+        <div class="prose">
+          <p>BPM and musical key solve different problems. Tempo describes speed; key describes the tonal center. This first version is a focused BPM analyzer, so it does not guess a key and pretend the answer is certain. For harmonic mixing, use the detected tempo here and confirm key with a dedicated chroma-based key analyzer or your DJ software.</p>
+          <p>Accurate BPM helps DJs align grids and transitions, producers time-stretch samples, musicians set a metronome, and editors cut visual changes to a pulse. For the cleanest result, analyze a section with steady drums. Tracks with rubato, tempo changes, very soft percussion, or unusual time signatures may need a manual tap check.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq content-section" id="faq">
+      <div class="section-heading"><p class="eyebrow">Useful answers</p><h2>BPM detector FAQ</h2></div>
+      <div class="faq-list">
+        <details><summary>How do I use the BPM detector with an MP3?<span>+</span></summary><p>Drop an MP3 onto the analyzer or choose it from your device. Your browser decodes and analyzes it locally, then displays an estimated BPM and confidence level. Nothing is uploaded.</p></details>
+        <details><summary>Can I use the BPM detector by tapping?<span>+</span></summary><p>Yes. Press Tap—or the space bar when you are not focused on another control—in time with at least four beats. The readout averages recent intervals, which is useful for checking the automatic result.</p></details>
+        <details><summary>Is this a live BPM detector?<span>+</span></summary><p>It analyzes complete audio files immediately in your browser. It does not continuously listen through your microphone, so it is live local analysis rather than live room monitoring.</p></details>
+        <details><summary>Can it detect BPM from a YouTube link?<span>+</span></summary><p>No. This tool does not download or extract audio from YouTube. Use an audio file you own or have permission to analyze, then drop that file into the detector.</p></details>
+        <details><summary>Does the BPM detector use my microphone?<span>+</span></summary><p>No microphone permission is requested. If a song is playing nearby, use Tap Tempo while listening.</p></details>
+        <details><summary>Which audio formats work?<span>+</span></summary><p>MP3 and WAV have broad support. M4A, AAC, and OGG depend on the codecs built into your browser and operating system. If a format cannot be decoded, converting it to WAV is the most reliable fix.</p></details>
+        <details><summary>Why is the result half or double the tempo I expect?<span>+</span></summary><p>Half-time and double-time rhythms share related beat spacing. Use the alternate values below the result or Tap Tempo to choose the interpretation that matches how you count the music.</p></details>
+        <details><summary>Is the BPM analyzer private and free?<span>+</span></summary><p>Yes. It is free, has no ads, and processes audio inside your browser. Your audio never leaves your device.</p></details>
+      </div>
+    </section>
+
+    <section class="closing-cta">
+      <p class="eyebrow">Hear it. Measure it. Use it.</p>
+      <h2>Find your track's tempo now.</h2>
+      <a class="button primary" href="#detector">Open BPM detector <span>↑</span></a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-main">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>BPM<span>Detector</span></a>
+      <p>Fast, free tempo analysis that stays on your device.</p>
+      <nav aria-label="Footer navigation"><a href="/bpm-finder/">BPM Finder</a><a href="/tempo-detector/">Tempo Detector</a><a href="/key-bpm-detector/">Key BPM Detector</a></nav>
+    </div>
+    <div class="footer-bottom"><span>© 2026 BPMDetector</span><span>Made for music makers · No tracking · No uploads</span></div>
+  </footer>
+
+  <noscript><p class="noscript">JavaScript is required for local audio analysis. All page content remains available without it.</p></noscript>
+  <script src="/js/bpm-detector.js" defer></script>
+  <script src="/js/tap-tempo.js" defer></script>
+</body>
+</html>
