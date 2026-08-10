@@ -161,8 +161,5 @@
   });
   $('half-time').addEventListener('click', () => useVariant(Math.round((window.currentBpm || 0) / 2)));
   $('double-time').addEventListener('click', () => useVariant((window.currentBpm || 0) * 2));
-  document.querySelector('.menu-button').addEventListener('click', event => {
-    const nav = $('site-nav'); const open = nav.classList.toggle('is-open'); event.currentTarget.setAttribute('aria-expanded', String(open));
-  });
   if ('serviceWorker' in navigator && location.protocol !== 'file:') window.addEventListener('load', () => navigator.serviceWorker.register('/service-worker.js').catch(() => {}));
 })();

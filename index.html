@@ -10,14 +10,20 @@
   <link rel="canonical" href="https://bpmdetector.io/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/enhancements.css">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bpmdetector.io/">
   <meta property="og:title" content="BPM Detector — Free Online Beat Finder &amp; Tempo Detector">
   <meta property="og:description" content="Find the tempo of any song in your browser. Free, fast, and your audio never leaves your device.">
   <meta property="og:site_name" content="BPMDetector">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://bpmdetector.io/img/og-bpm-detector.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BPMDetector interface showing a 120 BPM beat pulse">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="BPM Detector — Free Online Beat Finder">
   <meta name="twitter:description" content="Find any song's BPM online—free, private, and with no upload.">
+  <meta name="twitter:image" content="https://bpmdetector.io/img/og-bpm-detector.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -116,6 +122,12 @@
               <span>Other interpretations</span>
               <button id="half-time" type="button" title="Use half-time BPM">—</button>
               <button id="double-time" type="button" title="Use double-time BPM">—</button>
+            </div>
+            <div class="related-tools" aria-label="Related tempo tools">
+              <span>Keep working</span>
+              <a href="/bpm-finder/">BPM Finder <b>→</b></a>
+              <a href="/tempo-detector/">Tempo Guide <b>→</b></a>
+              <a href="/key-bpm-detector/">Key + BPM <b>→</b></a>
             </div>
           </div>
         </div>
@@ -217,5 +229,6 @@
   <noscript><p class="noscript">JavaScript is required for local audio analysis. All page content remains available without it.</p></noscript>
   <script src="/js/bpm-detector.js" defer></script>
   <script src="/js/tap-tempo.js" defer></script>
+  <script src="/js/nav.js" defer></script>
 </body>
 </html>
