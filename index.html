@@ -27,34 +27,100 @@
   <meta name="twitter:image" content="https://bpmdetector.io/img/og-bpm-detector.png">
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "SoftwareApplication",
-        "name": "BPMDetector",
-        "url": "https://bpmdetector.io/",
-        "applicationCategory": "MultimediaApplication",
-        "operatingSystem": "Any operating system with a modern web browser",
-        "browserRequirements": "Requires JavaScript and the Web Audio API",
-        "description": "A free, private browser-based BPM detector for MP3, WAV, M4A, and OGG audio files.",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "featureList": ["In-browser BPM analysis", "Tap tempo", "No server upload", "Offline-capable", "Confidence estimate"]
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "BPMDetector",
+      "url": "https://bpmdetector.io/",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any operating system with a modern web browser",
+      "browserRequirements": "Requires JavaScript and the Web Audio API",
+      "description": "A free, private browser-based BPM detector for MP3, WAV, M4A, and OGG audio files.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {"@type":"Question","name":"How do I use the BPM detector with an MP3?","acceptedAnswer":{"@type":"Answer","text":"Drop an MP3 onto the analyzer or choose it from your device. The browser decodes and analyzes the audio locally, then displays an estimated BPM and confidence level. Nothing is uploaded."}},
-          {"@type":"Question","name":"Can I use the BPM detector by tapping?","acceptedAnswer":{"@type":"Answer","text":"Yes. Press the Tap button in time with at least four beats. The tap tempo readout averages your recent intervals, making it useful for checking or correcting the automatic result."}},
-          {"@type":"Question","name":"Is this a live BPM detector?","acceptedAnswer":{"@type":"Answer","text":"It analyzes complete audio files directly in your browser. It does not continuously listen through your microphone, so it is live in the sense of immediate local file analysis, not live room monitoring."}},
-          {"@type":"Question","name":"Can it detect BPM from a YouTube link?","acceptedAnswer":{"@type":"Answer","text":"No. This tool does not download or extract audio from YouTube links. Use an audio file you own or are allowed to analyze, then drop that file into the detector."}},
-          {"@type":"Question","name":"Does the BPM detector use my microphone?","acceptedAnswer":{"@type":"Answer","text":"No. Microphone access is not requested. For a song playing nearby, use Tap Tempo while listening instead."}},
-          {"@type":"Question","name":"Which audio formats work?","acceptedAnswer":{"@type":"Answer","text":"MP3 and WAV have broad browser support. M4A, AAC, and OGG support depends on the codecs available in your browser and operating system."}},
-          {"@type":"Question","name":"Why can a BPM result be half or double the tempo I expect?","acceptedAnswer":{"@type":"Answer","text":"Half-time and double-time rhythms share the same beat spacing at different metrical levels. Use the tempo range controls or Tap Tempo to choose the interpretation that matches how you count the music."}},
-          {"@type":"Question","name":"Is the BPM analyzer private and free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The analyzer is free, has no ads, and processes audio in your browser. Your audio never leaves your device."}}
-        ]
-      }
-    ]
-  }
+      "featureList": [
+        "In-browser BPM analysis",
+        "Tap tempo",
+        "No server upload",
+        "Offline-capable",
+        "Confidence estimate"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I use the BPM detector with an MP3?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Drop an MP3 onto the analyzer or choose it from your device. Your browser decodes and analyzes it locally, then displays an estimated BPM and confidence level. Nothing is uploaded."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the BPM detector by tapping?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Press Tap—or the space bar when you are not focused on another control—in time with at least four beats. The readout averages recent intervals, which is useful for checking the automatic result."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this a live BPM detector?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It analyzes complete audio files immediately in your browser. It does not continuously listen through your microphone, so it is live local analysis rather than live room monitoring."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it detect BPM from a YouTube link?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. This tool does not download or extract audio from YouTube. Use an audio file you own or have permission to analyze, then drop that file into the detector."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the BPM detector use my microphone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No microphone permission is requested. If a song is playing nearby, use Tap Tempo while listening."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which audio formats work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MP3 and WAV have broad support. M4A, AAC, and OGG depend on the codecs built into your browser and operating system. If a format cannot be decoded, converting it to WAV is the most reliable fix."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is the result half or double the tempo I expect?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Half-time and double-time rhythms share related beat spacing. Use the alternate values below the result or Tap Tempo to choose the interpretation that matches how you count the music."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the BPM analyzer private and free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. It is free, has no ads, and processes audio inside your browser. Your audio never leaves your device."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -194,10 +260,10 @@
 
     <section class="editorial content-section compact" id="key-bpm-detector">
       <div class="editorial-grid">
-        <div><p class="eyebrow">Practical music data</p><h2>Key BPM detector: what this tool tells you</h2></div>
+        <div><p class="eyebrow">Need more than tempo?</p><h2>Pair BPM with musical key</h2></div>
         <div class="prose">
-          <p>BPM and musical key solve different problems. Tempo describes speed; key describes the tonal center. This first version is a focused BPM analyzer, so it does not guess a key and pretend the answer is certain. For harmonic mixing, use the detected tempo here and confirm key with a dedicated chroma-based key analyzer or your DJ software.</p>
-          <p>Accurate BPM helps DJs align grids and transitions, producers time-stretch samples, musicians set a metronome, and editors cut visual changes to a pulse. For the cleanest result, analyze a section with steady drums. Tracks with rubato, tempo changes, very soft percussion, or unusual time signatures may need a manual tap check.</p>
+          <p>Tempo measures speed; musical key describes tonal center. This tool focuses on reliable, private BPM analysis rather than guessing a key from limited evidence.</p>
+          <p>Use the dedicated <a href="/key-bpm-detector/">Key BPM Detector guide</a> for harmonic mixing, Camelot notation, and a workflow that checks both signals together.</p>
         </div>
       </div>
     </section>
