@@ -1,0 +1,5 @@
+# Consolidate duplicate BPM intent pages into the homepage.
+/bpm-finder / 301
+/bpm-finder/ / 301
+/tempo-detector / 301
+/tempo-detector/ / 301
